@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang = "ko">
+
+<head>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous">
+    </script>
+
+    <!-- 합쳐지고 최소화된 최신 CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+
+    <!-- 부가적인 테마 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+
+    <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+    <mata charset = "utf-8">
+    <title>BLOG</title>
+
+    <style>
+        h1{
+            font-size : 20px;
+            text-align: center;
+        }
+        h2{
+            font-size : 15px;
+            text-align: center;
+        }
+        h3{
+            font-size : 30px;
+            text-align: center;
+        }
+  </style>
+</head>
+
+<body>
+    <br>
+      <div class="container" style="width:1150px; margin: 0 auto;">
+              <nav class="navbar-default">
+                <div class="container-fluid">
+                  <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                      <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">BLOG</a>
+                  </div>
+                  <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{%url 'logout'%}">logout</a></li>
+                      <li><a href="{%url 'home'%}">home</a></li>
+                      <li><a href="{%url 'new'%}">writing</a></li> 
+                      <li class="active"><a href="{%url 'portfolio'%}">portfolio</a></li> 
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+            </div>
+            
+            {% load staticfiles %}
+                  <main role="main">
+
+                <div style ="padding-left:16px; padding-right:16px;">
+                    <section style="width:1120px; margin: 0 auto;" class="jumbotron text-center">
+                      <div class="container">
+                        <h3 class="jumbotron-heading">My Portfolio</h3>
+                      </div>
+                    </section>
+                </div>
+                    <br><br>
+
+                    <div style ="padding-left:100px; padding-right: 100px">
+                            <div style="border-top: 2px solid rgb(209, 209, 209); width:900px; height:380px; margin: 0 auto; padding:40px;">
+                                <div style="width: auto; height:300px; float: left;">
+                                 <img style="width:auto; height:300px;" src="{% static 'image1.jpg' %}">
+                                </div>
+                                <div style="width: 400px; height:300px; float: right;">
+                                 <h1 style = "color:skyblue;">"첫번째 포트폴리오"</h1>
+                                <h2 style= "padding:20px;">이 그림이 의미하는 바는 모름 </h2>
+                                </div>
+                                <br>
+                            </div>
+                    </div>
+                    {% for portfolio in portfolios.all %}
+                    <div style ="padding-left:100px; padding-right: 100px">
+                            <div style="border-top: 2px solid rgb(209, 209, 209); width:900px; height:380px; margin: 0 auto; padding:40px;">
+                                <div style="width: auto; height:300px; float: left;">
+                                 <img style="width:auto; height:300px;" src="{{ portfolio.image.url }}">
+                                </div>
+                                <div style="width: 400px; height:300px; float: right;">
+                                 <h1 style = "color:skyblue;">"{{ portfolio.title }}"</h1>
+                                <h2 style= "padding:20px;">{{ portfolio.description }} </h2>
+                                </div>
+                                <br>
+                            </div>
+                    </div>
+                    {% endfor %}
+                  </main>
+</body>
+</html>
