@@ -30,7 +30,7 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('blog')
-    return render(request, 'signup.html')
+    return render(request, 'login.html')
 
 
 # Create your views here.

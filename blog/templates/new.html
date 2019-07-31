@@ -18,7 +18,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
     <mata charset = "utf-8">
-    <title>BLOG</title>
+    <title>BLOG.writing</title>
 
     <style>
         h1{
@@ -40,28 +40,17 @@
 
 <body>
     <br>
-      <div class="container" style="width:1150px; margin: 0 auto;">
-              <nav class="navbar-default">
-                <div class="container-fluid">
-                  <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                      <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand">BLOG</a>
-                  </div>
-                  <div id="navbar" class="navbar-collapse collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                      <li><a href="{%url 'logout'%}">logout</a></li> 
-                      <li><a href="{%url 'home'%}">home</a></li>
-                      <li class="active"><a href="{%url 'new'%}">writing</a></li> 
-                      <li><a href="{%url 'portfolio'%}">portfolio</a></li> 
-                    </ul>
-                  </div>
-                </div>
-              </nav>
-            </div>
+    <div class="container" style="width:1150px; margin: 0 auto;" >
+        <ul class="nav nav-tabs">
+            <li><a href="{%url 'home'%}">home</a></li>
+            <li class="active"><a href="{%url 'new'%}">writing</a></li> 
+            <li><a href="{%url 'portfolio'%}">portfolio</a></li>
+            <ul class="nav navbar-nav navbar-right"style="padding-right:40px">
+                <li><a href="{%url 'logout'%}">logout</a></li> 
+            </ul>
+        </ul>
+    </div>  
+
             <br><br><br>
             <div style ="padding-left:100px; padding-right:100px">
                     <form action="{%url 'create'%}">

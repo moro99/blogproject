@@ -23,13 +23,13 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls), #admin 경로
-    path('', blog.views.home, name="home"), #home 경로
+    path('home/', blog.views.home, name="home"), #home 경로
     path('blog/<int:blog_id>', blog.views.detail, name="detail"), #detail경로
     path('blog/new/', blog.views.new, name="new"),
     path('blog/create/', blog.views.create, name="create"), #create함수 실행을 위한 경로
     path('portfolio/', portfolio.views.portfolio, name='portfolio'), #portfolio 경로
     path('signup/', acounts.views.signup, name='signup'),
-    path('login/', acounts.views.login, name='login'),
+    path('', acounts.views.login, name='login'),
     path('logout/', acounts.views.logout, name='logout'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
